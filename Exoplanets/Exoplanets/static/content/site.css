@@ -1,0 +1,51 @@
+﻿body {
+    margin: 0;
+    background-color: #363377;
+}
+
+header {
+}
+
+#banner {
+    float: top;
+    width: 100%;
+    max-height: 200px;
+}
+
+#title {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+}
+
+h1,h2,h3 {
+    color: #BDBCDC;
+}
+
+.planet {
+    margin-top: 1em;
+    padding: 0;
+    background-color: #260B47;
+}
+
+.planet-head {
+    margin: 0;
+    padding: 1em;
+}
+
+.planet-details {
+    background-color: #6C69A5;
+    margin: 0 0 1em 0;
+    padding: 1em;
+}
+
+.navigation {
+
+}
+
+.nav-card {
+    padding: 1em;
+    margin: 1em;
+    background-color: #C7B7DC;
+    color: #0C011A;
+}

@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title #{title} Exoplanets
+    link(rel='stylesheet', type='text/css', href='/static/content/foundation.min.css')
+    link(rel='stylesheet', type='text/css', href='/static/content/site.css')
+    script(src='/static/scripts/modernizr-2.6.2.js')
+  body
+    header
+        img#banner(src='/static/images/extra-large.jpg')
+        h1#title Exoplanets
+
+    .planet.medium-8.columns
+        block content
+
+    .navigation.medium-4.columns
+        .nav-card
+            a(href="/") Home
+        .nav-card
+            a(href="planets") All Confirmed Exoplanets
+        .nav-card
+            a(href="stars") All Stars with Confirmed Exoplanets
+        .nav-card
+            a(href="") Links
+
+    script(src='/static/scripts/jquery-1.10.2.js')
+    script(src='/static/scripts/foundation/foundation.js')
+    script(src='/static/scripts/respond.js')
