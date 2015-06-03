@@ -32,9 +32,11 @@ def init():
         if key not in PLANETS:
             PLANETS[key] = planet
 
-        star = dict(name=row[0], mass=row[5], radius=row[6], parsecs=row[7])
+        star = dict(name=row[0], mass=row[5], radius=row[6], parsecs=row[7], planets=1)
         if star['name'] not in STARS:
             STARS[star['name']] = star
+        else:
+            STARS[star['name']]['planets'] += 1
 
 def first_planet():
     """Get the first planet in the collection."""
@@ -49,5 +51,18 @@ def first_star():
         return next(iter(STARS.values()))
     else:
         return None
+
+def find_star(star_name):
+    """Get a star by name."""
+    return STARS[star_name]
+
+def find_planets(star_name):
+    """Get all planets orbiting a particular star."""
+    planets = []
+    for planet in PLANETS.values():
+        if planet['star'] == star_name:
+            planets.append(planet)
+
+    return planets
 
 init()

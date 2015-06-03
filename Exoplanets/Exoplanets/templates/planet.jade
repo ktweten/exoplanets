@@ -1,7 +1,7 @@
 .planet-details
     h2= planet['star']
     h3= planet['letter']
-    p= 'Published: ' + (planet['date'] or '?')
-    p= 'Mass: ' + (planet['mass'] or '?')
-    p= 'Radius: ' + (planet['radius'] or '?')
-    p= 'Discovery Method: ' + (planet['method'] or '?')
+    p Published: #{planet['date'] or '?'}
+    p Mass: #{planet['mass'] or '?'}
+    p Radius: #{planet['radius'] or '?'}
+    p Discovery Method: #{planet['method'] or '?'}

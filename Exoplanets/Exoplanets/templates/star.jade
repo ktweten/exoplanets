@@ -1,5 +1,7 @@
 .planet-details
     h2= star['name']
-    p= 'Mass: ' + star['mass']
-    p= 'Radius: ' + star['radius']
-    p= 'Distance: ' + star['parsecs'] + ' parsecs'
+    p Mass: #{star['mass'] or '?'}
+    p Radius: #{star['radius'] or '?'}
+    p Distance: #{star['parsecs'] or '?'} parsecs
+    p Planets: #{star['planets']}
+    a(href='star/#{star['name']}') System for #{star['name']}

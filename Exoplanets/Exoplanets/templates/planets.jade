@@ -3,7 +3,7 @@ extends layout
 
 block content
     .planet-head
-        h2 Planets
+        h2 Confirmed Exoplanets: #{planets|count}
 
     for planet in planets.values()
         include planet

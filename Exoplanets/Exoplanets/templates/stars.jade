@@ -3,7 +3,7 @@ extends layout
 
 block content
     .planet-head
-        h2 Stars
+        h2 Stars With Confirmed Planets: #{stars|count}
 
     for star in stars.values()
         include star
