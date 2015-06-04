@@ -1,7 +1,17 @@
-.planet-details
-    h2= planet['star']
-    h3= planet['letter']
-    p Published: #{planet['date'] or '?'}
-    p Mass: #{planet['mass'] or '?'}
-    p Radius: #{planet['radius'] or '?'}
-    p Discovery Method: #{planet['method'] or '?'}
+.planet-details.row
+    .medium-6.columns
+        h2= planet['star']
+        h3= planet['letter']
+        p Published: #{planet['date'] or '?'}
+        p Discovery Method: #{planet['method'] or '?'}
+        p Mass: #{planet['mass'] or '?'}
+        p Radius: #{planet['radius'] or '?'}
+    .medium-6.columns
+    - if planet['radius']
+        svg(id="chart#{planet['id']}", viewBox='0, 0, 250, 250')
+        script.
+            radius=#{planet['radius'] or 0};
+            colour="blue";
+            tag="#chart#{planet['id']}";
+
+        script(src='/static/scripts/chart.js')

@@ -30,10 +30,12 @@ def init():
                       method=row[8])
         key = planet['star'] + ' ' + planet['letter']
         if key not in PLANETS:
+            planet['id'] = 'p' + str(len(PLANETS))
             PLANETS[key] = planet
 
         star = dict(name=row[0], mass=row[5], radius=row[6], parsecs=row[7], planets=1)
         if star['name'] not in STARS:
+            star['id'] = 's' + str(len(STARS))
             STARS[star['name']] = star
         else:
             STARS[star['name']]['planets'] += 1

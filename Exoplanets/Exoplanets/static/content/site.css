@@ -10,12 +10,11 @@ header {
     width: 100%;
 }
 
-
-
 #title {
     position: absolute;
-    top: 100px;
+    top: 50px;
     left: 50px;
+    font-size: 3em;
 }
 
 h1,h2,h3 {
@@ -48,4 +47,9 @@ h1,h2,h3 {
     margin: 1em;
     background-color: #C7B7DC;
     color: #0C011A;
+}
+
+svg {
+    background-color: black;
+    max-width: 300px;
 }
