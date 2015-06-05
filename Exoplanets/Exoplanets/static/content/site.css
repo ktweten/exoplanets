@@ -3,20 +3,6 @@
     background-color: #363377;
 }
 
-header {
-}
-
-#banner {
-    width: 100%;
-}
-
-#title {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    font-size: 3em;
-}
-
 h1,h2,h3 {
     color: #BDBCDC;
 }
@@ -36,10 +22,6 @@ h1,h2,h3 {
     background-color: #6C69A5;
     margin: 0 0 1em 0;
     padding: 1em;
-}
-
-.navigation {
-
 }
 
 .nav-card {
