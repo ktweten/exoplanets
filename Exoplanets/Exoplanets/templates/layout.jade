@@ -17,16 +17,16 @@ html
                 img(src="/static/images/medium.jpg" alt="An image of the center of the galaxy")
             h1#title Exoplanets
 
-        .planet.medium-8.columns
-            block content
-
-        .navigation.medium-4.columns
+        .navigation.medium-4.columns.medium-push-8
             .nav-card
                 a(href="/") Home
             .nav-card
                 a(href="/planets") All Confirmed Exoplanets
             .nav-card
                 a(href="/stars") All Stars with Confirmed Exoplanets
-            .nav-card
-                a(href="") Links
+
+
+        .planet.medium-8.columns.medium-pull-4
+            block content
+
 
