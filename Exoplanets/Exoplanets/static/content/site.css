@@ -7,6 +7,17 @@ body {
     background-color: #363377;
 }
 
+.explanation {
+    padding: 1em;
+    margin: 1em;
+    background-color: #BDBCDC;
+    color: #260B47;
+}
+
+div.explanation h3 {
+    color: #260B47;
+}
+
 h1,h2,h3 {
     color: #BDBCDC;
 }

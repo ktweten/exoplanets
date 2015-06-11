@@ -24,9 +24,10 @@ def stars():
     """Renders all stars with confirmed exoplanets."""
     return render_template('stars.jade', stars=Exoplanets.exo.STARS)
 
-@app.route('/star/<star_name>')
-def star(star_name):
+@app.route('/star/<id>')
+def star(id):
     """Renders the star and all planets orbiting it."""
+    star_name = Exoplanets.exo.find_star_name(id)
     return render_template('system.jade', star=Exoplanets.exo.find_star(star_name),
                            planets=Exoplanets.exo.find_planets(star_name))
 

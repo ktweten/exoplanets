@@ -58,8 +58,16 @@ def find_star(star_name):
     """Get a star by name."""
     return STARS[star_name]
 
+def find_star_name(id):
+    for value in STARS.values():
+        if value['id'] == id:
+            return value['name']
+
+    return ''
+
 def find_planets(star_name):
     """Get all planets orbiting a particular star."""
+    star_name = star_name.replace('*', '.')
     planets = []
     for planet in PLANETS.values():
         if planet['star'] == star_name:
