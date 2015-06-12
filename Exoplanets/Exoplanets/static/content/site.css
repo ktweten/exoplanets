@@ -130,4 +130,6 @@ h1,h2,h3 {
 svg {
     background-color: black;
     max-width: 300px;
+    display: block;
+    margin: auto;
 }
