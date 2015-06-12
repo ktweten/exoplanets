@@ -1,4 +1,4 @@
-.planet-details.row
+.details.row
     .medium-6.columns
         h2= star['name']
         p Mass: #{star['mass'] or '?'}
@@ -6,6 +6,7 @@
         p Distance: #{star['parsecs'] or '?'} parsecs
         p Planets: #{star['planets']}
         a.button.secondary(href='star/#{star['id']}' role="button") System for #{star['name']}
+
     .medium-6.columns
     - if star['radius']
         svg(id="chart#{star['id']}", viewBox='0, 0, 250, 250')

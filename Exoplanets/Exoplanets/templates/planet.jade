@@ -1,4 +1,4 @@
-.planet-details.row
+.details.row
     .medium-6.columns
         h2= planet['star']
         h3= planet['letter']
@@ -6,6 +6,7 @@
         p Discovery Method: #{planet['method'] or '?'}
         p Mass: #{planet['mass'] or '?'}
         p Radius: #{planet['radius'] or '?'}
+
     .medium-6.columns
     - if planet['radius']
         svg(id="chart#{planet['id']}", viewBox='0, 0, 250, 250')
