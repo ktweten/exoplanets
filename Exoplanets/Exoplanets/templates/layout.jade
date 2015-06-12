@@ -24,24 +24,24 @@ html(lang='en', doctype='html')
             #title{position: absolute;top: 50px;left: 50px;font-size: 3em;}
         title #{title} Exoplanets
     body
-        header#logo
+        header#logo.depth-1
             h1#title Exoplanets
 
         nav.navigation.medium-4.columns.medium-push-8
-            .nav-card
+            .nav-card.depth-1
                 a(href="/") Home
-            .nav-card
+            .nav-card.depth-1
                 a(href="/planets") All Confirmed Exoplanets
-            .nav-card
+            .nav-card.depth-1
                 a(href="/stars") All Stars with Confirmed Exoplanets
 
-            .explanation
+            .explanation.depth-1
                 h2 A Note About Measurements
                 p.
                     The values used for the mass and radius of planets are relative
                     to the Earth. Similarly, the values for stars are relative to the Sun.
 
-        .detail.medium-8.columns.medium-pull-4
+        .main-content.medium-8.columns.medium-pull-4
             block content
 
 
