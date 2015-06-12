@@ -14,7 +14,7 @@ body {
     color: #260B47;
 }
 
-div.explanation h3 {
+div.explanation h2 {
     color: #260B47;
 }
 
@@ -26,6 +26,7 @@ h1,h2,h3 {
     margin-top: 1em;
     padding: 0;
     background-color: #260B47;
+    color: #e8e8e8;
 }
 
 .planet-head {

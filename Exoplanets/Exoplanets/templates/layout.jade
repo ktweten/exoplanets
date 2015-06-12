@@ -1,23 +1,33 @@
 doctype html
-html
+html(lang='en', doctype='html')
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         style
-            #banner{width: 100%;}
+            #logo{min-height: 150px;
+                background-repeat: no-repeat;
+                background-image: url("/static/images/extra-large.jpg");
+            }
+            @media only screen and (max-width: 2000px) {
+                #logo{background-image: url("/static/images/extra-large.jpg");}
+            }
+            @media only screen and (max-width: 1440px) {
+                #logo{background-image: url("/static/images/large.jpg");}
+            }
+            @media only screen and (max-width: 1024px) {
+                #logo{background-image: url("/static/images/medium.jpg");}
+            }
+            @media only screen and (max-width: 640px) {
+                #logo{background-image: url("/static/images/small.jpg");}
+            }
+            #banner{min-width: 100%;}
             #title{position: absolute;top: 50px;left: 50px;font-size: 3em;}
         title #{title} Exoplanets
     body
-        header
-            picture#banner
-                source(media="(min-width: 1441px)" srcset="/static/images/extra-large.jpg")
-                source(media="(min-width: 1025px)" srcset="/static/images/large.jpg")
-                source(media="(min-width: 641px)" srcset="/static/images/medium.jpg")
-                source(srcset="/static/images/small.jpg")
-                img(src="/static/images/medium.jpg" alt="An image of the center of the galaxy")
+        header#logo
             h1#title Exoplanets
 
-        .navigation.medium-4.columns.medium-push-8
+        nav.navigation.medium-4.columns.medium-push-8
             .nav-card
                 a(href="/") Home
             .nav-card
@@ -26,7 +36,7 @@ html
                 a(href="/stars") All Stars with Confirmed Exoplanets
 
             .explanation
-                h3 A Note About Measurements
+                h2 A Note About Measurements
                 p The values used for the mass and radius of planets are relative to the Earth. Similarly, the values for stars are relative to the Sun.
         .planet.medium-8.columns.medium-pull-4
             block content
