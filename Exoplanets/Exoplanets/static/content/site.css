@@ -7,14 +7,13 @@ body {
     background-color: #363377;
 }
 
-.explanation {
+.card {
     padding: 1em;
     margin: 1em;
     background-color: #BDBCDC;
-    color: #260B47;
 }
 
-div.explanation h2 {
+div.card h2 {
     color: #260B47;
 }
 
@@ -79,7 +78,7 @@ h1,h2,h3 {
 
 .card-head {
     padding: 1em;
-    background-color: #252293;
+    background-color: #BDBCDC;
 }
 
 .card-notes {
@@ -120,7 +119,6 @@ h1,h2,h3 {
     margin: 1em;
     background-color: #C7B7DC;
     color: #0C011A;
-
 }
 
 .navigation {
