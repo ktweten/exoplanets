@@ -7,6 +7,33 @@ import requests
 import io
 import csv
 
+class Planet:
+    count = 0
+
+    def __init__(self, star, letter, date, mass, radius, method):
+        self.star = star
+        self.letter = letter
+        self.date = date
+        self.mass = mass
+        self.radius = radius
+        self.method = method
+        Planet.count += 1
+        self.id = 'p' + str(Planet.count)
+
+
+class Star:
+    count = 0
+
+    def __init__(self, name, mass, radius, parsecs):
+        self.name = name
+        self.mass = mass
+        self.radius = radius
+        self.parsecs = parsecs
+        self.planets = 1
+        Star.count += 1
+        self.id = 's' + str(Star.count)
+
+
 STARS = OrderedDict()
 PLANETS = OrderedDict()
 
@@ -26,19 +53,18 @@ def init():
     global STARS
 
     for row in csv_data:
-        planet = dict(star=row[0], letter=row[1], date=row[2], mass=row[3], radius=row[4],
-                      method=row[8])
-        key = planet['star'] + ' ' + planet['letter']
-        if key not in PLANETS:
-            planet['id'] = 'p' + str(len(PLANETS))
-            PLANETS[key] = planet
+        star_name = row[0]
+        planet_letter = row[1]
+        key = star_name + ' ' + planet_letter
 
-        star = dict(name=row[0], mass=row[5], radius=row[6], parsecs=row[7], planets=1)
-        if star['name'] not in STARS:
-            star['id'] = 's' + str(len(STARS))
-            STARS[star['name']] = star
+        if key not in PLANETS:
+            PLANETS[key] = Planet(star=star_name, letter=planet_letter, date=row[2], mass=row[3],
+                                  radius=row[4], method=row[8])
+
+        if star_name not in STARS:
+            STARS[star_name] = Star(name=star_name, mass=row[5], radius=row[6], parsecs=row[7])
         else:
-            STARS[star['name']]['planets'] += 1
+            STARS[star_name].planets += 1
 
 def first_planet():
     """Get the first planet in the collection."""
@@ -59,20 +85,21 @@ def find_star(star_name):
     return STARS[star_name]
 
 def find_star_name(id):
+    """Find the name of a star from the id"""
+    name = ''
     for value in STARS.values():
-        if value['id'] == id:
-            return value['name']
-
-    return ''
+        if value.id == id:
+            name = value.name
+            break
+    return name
 
 def find_planets(star_name):
     """Get all planets orbiting a particular star."""
     star_name = star_name.replace('*', '.')
     planets = []
     for planet in PLANETS.values():
-        if planet['star'] == star_name:
+        if planet.star == star_name:
             planets.append(planet)
-
     return planets
 
 init()
