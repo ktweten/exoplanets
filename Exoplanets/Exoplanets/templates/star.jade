@@ -1,22 +1,22 @@
 .details.row.depth-1
     .medium-6.columns
         .card.depth-1
-            h2= star['name']
+            h2= star.star_name
 
         .card-notes
-            p Mass: #{star['mass'] or '?'}
-            p Radius: #{star['radius'] or '?'}
-            p Distance: #{star['parsecs'] or '?'} parsecs
-            p Planets: #{star['planets']}
-            a.button.secondary.depth-1(href='star/#{star['id']}' role="button") System for #{star['name']}
+            p Mass: #{star.mass or '?'}
+            p Radius: #{star.radius or '?'}
+            p Distance: #{star.parsecs or '?'} parsecs
+            p Planets: #{star.planets}
+            a.button.secondary.depth-1(href='star/#{star.id}' role="button") System for #{star.star_name}
 
     .medium-6.columns.card-graphic
-    - if star['radius']
-        svg.depth-1(id="chart#{star['id']}", viewBox='0, 0, 250, 250')
+    - if star.radius
+        svg.depth-1(id="chart#{star.id}", viewBox='0, 0, 250, 250')
         script.
-            radius=#{star['radius'] or 0};
+            radius=#{star.radius or 0};
             colour="yellow";
-            tag="#chart#{star['id']}";
+            tag="#chart#{star.id}";
 
         script(src='/static/scripts/d3.v3.min.js')
         script(src='/static/scripts/chart.js')

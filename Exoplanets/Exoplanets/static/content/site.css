@@ -13,7 +13,7 @@ body {
     background-color: #BDBCDC;
 }
 
-div.card h2 {
+div.card h2, div.card h3 {
     color: #260B47;
 }
 

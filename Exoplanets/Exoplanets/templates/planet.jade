@@ -1,21 +1,21 @@
 .details.row.depth-1
     .medium-6.columns
         .card.depth-1
-            h2= planet['star']
-            h3= planet['letter']
+            h2= planet.star_name
+            h3= planet.letter
         .card-notes
-            p Published: #{planet['date'] or '?'}
-            p Discovery Method: #{planet['method'] or '?'}
-            p Mass: #{planet['mass'] or '?'}
-            p Radius: #{planet['radius'] or '?'}
+            p Published: #{planet.date or '?'}
+            p Discovery Method: #{planet.method or '?'}
+            p Mass: #{planet.mass or '?'}
+            p Radius: #{planet.radius or '?'}
 
     .medium-6.columns.card-graphic
     - if planet['radius']
-        svg.depth-1(id="chart#{planet['id']}", viewBox='0, 0, 250, 250')
+        svg.depth-1(id="chart#{planet.id}", viewBox='0, 0, 250, 250')
         script.
-            radius=#{planet['radius'] or 0};
+            radius=#{planet.radius or 0};
             colour="blue";
-            tag="#chart#{planet['id']}";
+            tag="#chart#{planet.id}";
 
         script(src='/static/scripts/d3.v3.min.js')
         script(src='/static/scripts/chart.js')
