@@ -48,10 +48,7 @@ def all_planets():
 
 def first_planet():
     """ Get the first planet in the collection. Returns None if none are found. """
-    try:
-        planet = models.Planet.objects.order_by('-date').limit(1)[0]
-    except DoesNotExist:
-        planet = None
+    planet = models.Planet.objects.order_by('-date').first()
     return planet
 
 def all_stars():
