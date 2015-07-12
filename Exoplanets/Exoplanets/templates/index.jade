@@ -2,12 +2,29 @@
 extends layout
 
 block content
-    .details-head.depth-2
+    .intro-card.row
+        .details-head.depth-2
+            h2 A Brief Introduction to Exoplanets
+
+        .details.depth-1.medium-12.columns.intro-body
+            | In 1992 the first exoplanet (a planet outside our solar system) was detected.
+            | Over the last few decades we've developed the technology to actually
+            | find them using a variety of different methods.
+            | This site provides a simple introduction to some of what we now know
+            | and how we know it. All the data used here comes from 
+            a(href="http://exoplanetarchive.ipac.caltech.edu/") NASA's Exoplanet Archive 
+            | and is only a tiny fraction of what astronomers have discovered.
+
+    .details-head.row.depth-2
         h2 Most Recently Confirmed Exoplanet
 
     include planet
+
+    #histograms
 
     link(rel='stylesheet', type='text/css', href='/static/content/foundation.min.css')
     link(rel='stylesheet', type='text/css', href='/static/content/normalize.css')
     link(rel='stylesheet', type='text/css', href='/static/content/site.css')
     script(src='/static/scripts/jquery-1.10.2.min.js')
+    script(src='/static/scripts/d3.v3.min.js')
+    script(src='/static/scripts/histogram.js')

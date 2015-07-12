@@ -5,7 +5,9 @@
             h3= planet.letter
         .card-notes
             p Published: #{planet.date or '?'}
-            p Discovery Method: #{planet.method or '?'}
+            p
+             | Discovery Method:  
+             a(href="/methods##{planet.method.replace(' ', '')}") #{planet.method or '?'}
             p Mass: #{planet.mass or '?'}
             p Radius: #{planet.radius or '?'}
 

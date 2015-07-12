@@ -20,8 +20,8 @@ html(lang='en', doctype='html')
             @media only screen and (max-width: 640px) {
                 #logo{background-image: url("/static/images/small.jpg");}
             }
-            #banner{min-width: 100%;}
             #title{position: absolute;top: 50px;left: 50px;font-size: 3em;}
+
         title #{title} Exoplanets
     body
         header#logo.depth-1
@@ -30,6 +30,8 @@ html(lang='en', doctype='html')
         nav.navigation.medium-4.columns.medium-push-8
             .nav-card.depth-1
                 a(href="/") Home
+            .nav-card.depth-1
+                a(href="/methods") Methods for Finding Exoplanets
             .nav-card.depth-1
                 a(href="/planets") All Confirmed Exoplanets
             .nav-card.depth-1
