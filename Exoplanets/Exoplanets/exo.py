@@ -6,6 +6,7 @@ from Exoplanets import models
 import requests
 import io
 import csv
+import random
 
 def init():
     """Initialize the database with data from the NASA api."""
@@ -24,16 +25,21 @@ def init():
         star_name = row[0]
         planet_letter = row[1]
         key = star_name + ' ' + planet_letter
+        planet_mass = float(row[3]) if row[3] else float(0)
+        planet_radius = float(row[4]) if row[4] else float(0)
+        star_mass = float(row[5]) if row[5] else float(0)
+        star_radius = float(row[6]) if row[6] else float(0)
+        parsecs = float(row[7]) if row[7] else float(0)
 
-        planet = models.Planet(star_name=star_name, letter=planet_letter, date=row[2], mass=row[3],
-                                  radius=row[4], method=row[8])
+        planet = models.Planet(star_name=star_name, letter=planet_letter, date=row[2], mass=planet_mass,
+                                  radius=planet_radius, method=row[8])
         planet.save()
 
         stars = models.Star.objects(star_name=star_name)
         if stars.count() > 0:
             star = stars[0]
         else:
-            star = models.Star(star_name=star_name, mass=row[5], radius=row[6], parsecs=row[7], planets=0)
+            star = models.Star(star_name=star_name, mass=star_mass, radius=star_radius, distance=parsecs, planets=0)
 
         star.planets += 1
         star.save()
@@ -45,6 +51,22 @@ def all_planets():
     except DoesNotExist:
         planets = None
     return planets
+
+def mass_data():
+    """ Get all the mass for all planets, in json. Returns None if none are found. """
+    try:
+        planets = models.Planet.objects(mass__gt=0).only('mass')
+    except DoesNotExist:
+        planets = None
+    return planets.to_json()
+
+def radius_data():
+    """ Get all the radius for all planets, in json. Returns None if none are found. """
+    try:
+        planets = models.Planet.objects(radius__gt=0).only('radius')
+    except DoesNotExist:
+        planets = None
+    return planets.to_json()
 
 def first_planet():
     """ Get the first planet in the collection. Returns None if none are found. """
@@ -58,6 +80,14 @@ def all_stars():
     except DoesNotExist:
         stars = None
     return stars
+
+def distance_data():
+    """ Get all the distance for all stars, in json. Returns None if none are found. """
+    try:
+        stars = models.Star.objects(distance__gt=0).only('distance')
+    except DoesNotExist:
+        stars = None
+    return stars.to_json()
 
 def find_star_by_id(find_id):
     """Find the star with the given id. Returns None if no star has that id."""
@@ -77,3 +107,5 @@ def find_planets_around_star(star):
     except DoesNotExist:
         planets = []
     return planets
+
+#init()

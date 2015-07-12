@@ -9,4 +9,4 @@ app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
 import Exoplanets.views
 
 if __name__ == '__main__':
-    app.run()
+    app.run(threaded=True)
