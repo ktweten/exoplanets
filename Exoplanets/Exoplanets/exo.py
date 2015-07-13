@@ -55,18 +55,18 @@ def all_planets():
 def mass_data():
     """ Get all the mass for all planets, in json. Returns None if none are found. """
     try:
-        planets = models.Planet.objects(mass__gt=0).only('mass')
+        planets = [planet["mass"] for planet in models.Planet.objects(mass__gt=0).only('mass')]
     except DoesNotExist:
         planets = None
-    return planets.to_json()
+    return planets
 
 def radius_data():
     """ Get all the radius for all planets, in json. Returns None if none are found. """
     try:
-        planets = models.Planet.objects(radius__gt=0).only('radius')
+        planets = [planet["radius"] for planet in models.Planet.objects(radius__gt=0).only('radius')]
     except DoesNotExist:
         planets = None
-    return planets.to_json()
+    return planets
 
 def first_planet():
     """ Get the first planet in the collection. Returns None if none are found. """
@@ -84,10 +84,10 @@ def all_stars():
 def distance_data():
     """ Get all the distance for all stars, in json. Returns None if none are found. """
     try:
-        stars = models.Star.objects(distance__gt=0).only('distance')
+        stars = [star["distance"] for star in models.Star.objects(distance__gt=0).only('distance')]
     except DoesNotExist:
         stars = None
-    return stars.to_json()
+    return stars
 
 def find_star_by_id(find_id):
     """Find the star with the given id. Returns None if no star has that id."""
@@ -108,4 +108,3 @@ def find_planets_around_star(star):
         planets = []
     return planets
 
-#init()

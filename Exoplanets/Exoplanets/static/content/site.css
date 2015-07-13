@@ -5,6 +5,7 @@
 body {
     margin: 0;
     background-color: #363377;
+    word-wrap: break-word;
 }
 
 .card {

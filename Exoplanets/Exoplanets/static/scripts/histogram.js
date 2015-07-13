@@ -14,17 +14,11 @@
     function data_callback(input) {
         var data = input;
         return function (error, response) {
-            // Parse the JSON array
-            var parsed = JSON.parse(response.data);
-
-            // Extract only the values
-            var values = parsed.map(function (entry) { return entry[data.type]; });
-
             // Define the bounds for the graph svg
             var bounds = { top: 250, right: 450, bottom: 50, left: 50 };
 
             // Calculate the number of bins for the histogram from the extent of the input
-            var maxvalue = Math.ceil(Math.max.apply(null, values));
+            var maxvalue = Math.ceil(Math.max.apply(null, response.data));
             var num_bins = Math.min(maxvalue, 100);
             var graph;
 
@@ -47,7 +41,7 @@
                 .style("text-anchor", "middle")
                 .text(data.unit);
 
-             make_histogram(values, bounds, graph, num_bins);
+            make_histogram(response.data, bounds, graph, num_bins);
         }
     }
 
